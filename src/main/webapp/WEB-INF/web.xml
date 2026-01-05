@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://jakarta.ee/xml/ns/jakartaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://jakarta.ee/xml/ns/jakartaee http://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+
+    <display-name>Green City Lottery</display-name>
+
+    <!-- Default DB settings: using H2 embedded database -->
+    <context-param>
+        <param-name>db.url</param-name>
+        <param-value>jdbc:h2:./data/greencity;MODE=MySQL;AUTO_SERVER=TRUE</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.user</param-name>
+        <param-value>sa</param-value>
+    </context-param>
+    <context-param>
+        <param-name>db.password</param-name>
+        <param-value></param-value>
+    </context-param>
+    <context-param>
+        <param-name>winners.count</param-name>
+        <param-value>500</param-value>
+    </context-param>
+
+    <!-- Servlet mapping is provided by annotation in LotteryController; keep web.xml minimal -->
+
+</web-app>

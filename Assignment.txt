@@ -1,0 +1,31 @@
+Figure 1.1: Real-world data flow model - From application submission to random draw
+Applicants
+Lottery Engine
+Housing Units
+1. Problem Statement (Scenario)
+"The Green City project has 500 apartments but received 1200 valid applications. Build a module for a fair draw."
+
+Input: Import the list of applicants from the database (Table 'Applicant').
+
+> Process: Randomly select 500 winners based on the provided seed.
+
+> Output: Display the list of winners on the web interface and save it to Table 'Winner'.
+
+2. Technical Requirements
+MUST have JSP Model 2 (MVC) architecture. Do not use frameworks (Spring/Struts).
+
+MUST have Draw logic uses java.security. SecureRandom ensures randomness.
+
+MUST have Interface uses JSP + JSTL Core Tags (do not use Java scriptlets <% %>).
+
+OPTIONAL: Add functionality to export results to PDF or Excel files for reporting.
+
+3. Implementation Guide
+1. Create Database Schema: 'Applicant' (id, name, status) & 'Winner' (ticket_id).
+
+2. Build a Model (ApplicantDAO) to connect and retrieve data.
+
+3. Write LotteryService: Implement the Fisher-Yates shuffle algorithm with SecureRandom.
+
+cia
+4. Create LotteryController (Servlet) to handle the POST request '/draw' and redirect to View.0

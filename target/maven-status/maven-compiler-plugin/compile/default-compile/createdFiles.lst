@@ -1,0 +1,7 @@
+com\greencity\util\DBPopulator.class
+com\greencity\controller\ResultsController.class
+com\greencity\model\Applicant.class
+com\greencity\dao\ApplicantDAO.class
+com\greencity\service\LotteryService.class
+com\greencity\controller\LotteryController.class
+com\greencity\model\Winner.class
