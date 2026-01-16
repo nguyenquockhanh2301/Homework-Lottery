@@ -5,7 +5,6 @@
 
     <display-name>Green City Lottery</display-name>
 
-    <!-- Default DB settings: using H2 embedded database -->
     <context-param>
         <param-name>db.url</param-name>
         <param-value>jdbc:mysql://localhost:3306/greencity?useSSL=false&amp;serverTimezone=UTC</param-value>
@@ -23,7 +22,6 @@
         <param-value>500</param-value>
     </context-param>
 
-    <!-- Explicit servlet mappings (annotations may not be scanned) -->
     <servlet>
         <servlet-name>LotteryController</servlet-name>
         <servlet-class>com.greencity.controller.LotteryController</servlet-class>

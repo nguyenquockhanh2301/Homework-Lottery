@@ -18,7 +18,6 @@ public class ApplicantDAO {
     }
 
     private Connection getConnection() throws SQLException {
-        // Explicitly load driver in case ServiceLoader auto-registration is disabled in the container
         try {
             if (jdbcUrl != null) {
                 if (jdbcUrl.startsWith("jdbc:h2:")) {
@@ -28,7 +27,6 @@ public class ApplicantDAO {
                 }
             }
         } catch (ClassNotFoundException ignored) {
-            // If driver is already loaded or not on classpath, let DriverManager handle the error
         }
         return DriverManager.getConnection(jdbcUrl, dbUser, dbPass);
     }

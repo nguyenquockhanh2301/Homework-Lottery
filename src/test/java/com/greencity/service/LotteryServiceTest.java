@@ -24,7 +24,6 @@ public class LotteryServiceTest {
 
         assertEquals(500, winners1.size());
         assertEquals(500, winners2.size());
-        // With same seed, order should be identical
         for (int i = 0; i < 500; i++) {
             assertEquals(winners1.get(i).getId(), winners2.get(i).getId());
         }

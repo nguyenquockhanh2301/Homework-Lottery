@@ -15,7 +15,6 @@ public class LotteryService {
         SecureRandom rnd = null;
         if (seed != null) {
             try {
-                // Use a deterministic algorithm when a seed is supplied
                 rnd = SecureRandom.getInstance("SHA1PRNG");
             } catch (Exception e) {
                 rnd = new SecureRandom();
@@ -29,7 +28,6 @@ public class LotteryService {
             }
         }
 
-        // Fisher-Yates shuffle
         for (int i = copy.size() - 1; i > 0; i--) {
             int j = rnd.nextInt(i + 1);
             Applicant tmp = copy.get(i);

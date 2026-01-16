@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class DBPopulator {
-    // Read JDBC configuration from system properties so this utility can target MySQL (XAMPP) or H2.
     private static final String JDBC_URL = System.getProperty("db.url", "jdbc:h2:./data/greencity;MODE=MySQL;AUTO_SERVER=TRUE");
     private static final String USER = System.getProperty("db.user", "sa");
     private static final String PASS = System.getProperty("db.pass", "");
@@ -19,7 +18,6 @@ public class DBPopulator {
                 s.execute("CREATE TABLE IF NOT EXISTS Winner (ticket_id BIGINT AUTO_INCREMENT PRIMARY KEY, applicant_id INT NOT NULL, seed BIGINT NOT NULL, draw_time TIMESTAMP NOT NULL)");
             }
 
-            // Check if applicants already exist
             try (PreparedStatement ps = c.prepareStatement("SELECT COUNT(*) FROM Applicant"); ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     int count = rs.getInt(1);
@@ -34,7 +32,6 @@ public class DBPopulator {
             if (JDBC_URL.startsWith("jdbc:mysql:") || JDBC_URL.startsWith("jdbc:mariadb:")) {
                 upsertSql = "INSERT INTO Applicant(id, name, status) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE name=VALUES(name), status=VALUES(status)";
             } else {
-                // H2 fallback (MERGE is supported)
                 upsertSql = "MERGE INTO Applicant(id, name, status) KEY(id) VALUES (?, ?, ?)";
             }
 
