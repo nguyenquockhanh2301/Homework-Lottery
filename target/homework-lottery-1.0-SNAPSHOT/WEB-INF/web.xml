@@ -8,11 +8,11 @@
     <!-- Default DB settings: using H2 embedded database -->
     <context-param>
         <param-name>db.url</param-name>
-        <param-value>jdbc:h2:./data/greencity;MODE=MySQL;AUTO_SERVER=TRUE</param-value>
+        <param-value>jdbc:mysql://localhost:3306/greencity?useSSL=false&amp;serverTimezone=UTC</param-value>
     </context-param>
     <context-param>
         <param-name>db.user</param-name>
-        <param-value>sa</param-value>
+        <param-value>root</param-value>
     </context-param>
     <context-param>
         <param-name>db.password</param-name>
@@ -23,6 +23,36 @@
         <param-value>500</param-value>
     </context-param>
 
-    <!-- Servlet mapping is provided by annotation in LotteryController; keep web.xml minimal -->
+    <!-- Explicit servlet mappings (annotations may not be scanned) -->
+    <servlet>
+        <servlet-name>LotteryController</servlet-name>
+        <servlet-class>com.greencity.controller.LotteryController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LotteryController</servlet-name>
+        <url-pattern>/draw</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ResultsController</servlet-name>
+        <servlet-class>com.greencity.controller.ResultsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ResultsController</servlet-name>
+        <url-pattern>/results</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ApplicantsController</servlet-name>
+        <servlet-class>com.greencity.controller.ApplicantsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApplicantsController</servlet-name>
+        <url-pattern>/applicants</url-pattern>
+    </servlet-mapping>
+
+    <welcome-file-list>
+        <welcome-file>applicants</welcome-file>
+    </welcome-file-list>
 
 </web-app>

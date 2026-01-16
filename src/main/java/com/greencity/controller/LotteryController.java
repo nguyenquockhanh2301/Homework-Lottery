@@ -6,7 +6,6 @@ import com.greencity.service.LotteryService;
 
 import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -14,7 +13,6 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "LotteryController", urlPatterns = {"/draw"})
 public class LotteryController extends HttpServlet {
     private String jdbcUrl;
     private String dbUser;

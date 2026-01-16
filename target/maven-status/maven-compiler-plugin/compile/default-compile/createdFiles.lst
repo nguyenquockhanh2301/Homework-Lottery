@@ -1,4 +1,5 @@
 com\greencity\util\DBPopulator.class
+com\greencity\controller\ApplicantsController.class
 com\greencity\controller\ResultsController.class
 com\greencity\model\Applicant.class
 com\greencity\dao\ApplicantDAO.class
